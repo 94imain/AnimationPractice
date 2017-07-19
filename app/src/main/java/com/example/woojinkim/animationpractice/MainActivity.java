@@ -1,21 +1,54 @@
 package com.example.woojinkim.animationpractice;
 
-import android.animation.ValueAnimator;
-import android.media.Image;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageView;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.AnimationSet;
+import android.widget.Button;
+import android.widget.TextView;
 
-import com.airbnb.lottie.Cancellable;
 import com.airbnb.lottie.LottieAnimationView;
-import com.airbnb.lottie.LottieComposition;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
+
+
+    AnimationSet set = new AnimationSet(true);
+
+    @OnClick(R.id.left_bt) void left() {
+        Intent intent = new Intent(MainActivity.this, LeftComingActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.from_left, R.anim.kamahi);
+        set.setInterpolator(new AccelerateInterpolator());
+    }
+    @OnClick(R.id.top_bt) void top() {
+        Intent intent = new Intent(MainActivity.this, LeftComingActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.from_bot, R.anim.kamahi);
+        set.setInterpolator(new AccelerateInterpolator());
+    }
+    @OnClick(R.id.right_bt) void right() {
+        Intent intent = new Intent(MainActivity.this, LeftComingActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.from_right, R.anim.kamahi);
+        set.setInterpolator(new AccelerateInterpolator());
+    }
+    @OnClick(R.id.bot_bt) void bot() {
+        Intent intent = new Intent(MainActivity.this, LeftComingActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.from_top, R.anim.kamahi);
+        set.setInterpolator(new AccelerateInterpolator());
+    }
+
+    @OnClick(R.id.flip_bt) void flipListener() {
+        Intent intent = new Intent(MainActivity.this, LeftComingActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.fade_in, R.anim.kamahi);
+    }
 
     @BindView(R.id.ltav1) LottieAnimationView a1;
     @BindView(R.id.ltav2) LottieAnimationView a2;
